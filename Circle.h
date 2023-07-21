@@ -1,12 +1,13 @@
 /*
 * Filename: Circle.h
-* Project: OOP-assign3
+* Project: OOP-assign3 (and assign5)
 * Student ID: 8790144
 * By: Jongeon Lee
-* Date: Jun 17, 2023
+* Date: Jul 22, 2023
 * Description:This header file defines the Circle class, which is derived from the Shape class. It introduces additional member variables and
 			  overrides the virtual functions to calculate the perimeter, area, and overall dimension specific to a circle.
 */
+
 
 #pragma once
 
@@ -30,7 +31,6 @@ using namespace std;
 #ifndef __CIRCLE_H__
 #define __CIRCLE_H__
 
-
 class Circle : public Shape {
 private:
 	// Variables
@@ -40,7 +40,7 @@ private:
 public:
 	// Default constructor
 	Circle();						///< constructor
-	Circle(char* col, float rad);
+	Circle(const char* col, float rad);
 	~Circle();
 
 	// Get the radius of the circle
@@ -60,5 +60,17 @@ public:
 
 	// Calculate the overall dimension of the circle
 	float OverallDimension(void);	///< Calculate the overall dimension of the circle
+
+	// Overloaded + operation
+	Circle operator+(const Circle& rhs) const;		///< Overloaded + operation
+
+	// Overloaded * operation
+	Circle operator*(const Circle& rhs) const;		///< Overloaded * operation
+
+	// Overloaded = operation
+	Circle& operator=(const Circle& rhs);		///< Overloaded = operation
+
+	// Overloaded == operation
+	bool operator==(const Circle& rhs) const;		///< Overloaded == operation
 };
 #endif

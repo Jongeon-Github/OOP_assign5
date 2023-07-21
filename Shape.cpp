@@ -1,9 +1,9 @@
 /*
 * Filename: Shape.cpp
-* Project: OOP-assign3
+* Project: OOP-assign3 (and assign5)
 * Student ID: 8790144
 * By: Jongeon Lee
-* Date: Jun 17, 2023
+* Date: Jul 22, 2023
 * Description: This file implements the Shape class with functions for managing shape properties and calculations.
 */
 
@@ -47,7 +47,7 @@ Shape::Shape(char const* shape_name, char const* shape_colour) : name(shape_name
 * Parameters: None
 * Return: char* - The name of the shape.
 */
-char const* Shape::GetName(void) {
+char const* Shape::GetName(void) const {
 	return name;
 };
 
@@ -58,7 +58,7 @@ char const* Shape::GetName(void) {
 * Parameters: None
 * Return: char* - The colour of the shape.
 */
-char const* Shape::GetColour(void) {
+char const* Shape::GetColour(void) const {
 	return colour;
 };
 

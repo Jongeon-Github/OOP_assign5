@@ -1,9 +1,9 @@
 /*
 * Filename: Circle.cpp
-* Project: OOP-assign3
+* Project: OOP-assign3 (and assign5)
 * Student ID: 8790144
 * By: Jongeon Lee
-* Date: Jun 17, 2023
+* Date: Jul 22, 2023
 * Description: The Circle class is a subclass of Shape, representing a circle shape with methods for managing its radius, perimeter, area, and displaying information.
 */
 
@@ -21,7 +21,7 @@ using namespace std;
 * Parameters: None
 * Return : None
 */
-Circle::Circle() {
+Circle::Circle() : Shape("Circle", "undefined") {
 	radius = 0.00;
 	PI = (float)3.1415926;
 };
@@ -35,9 +35,9 @@ Circle::Circle() {
 *     - float rad: The radius of the circle.
 * Return: None
 */
-Circle::Circle(char* col, float rad) : Shape("Circle", col) {
-	SetColour(col);
-	SetRadius(rad);
+Circle::Circle(const char* col, float rad) : Shape("Circle", col) {
+	radius = rad;
+	PI = (float)3.14159265359;
 };
 
 /*
@@ -124,3 +124,63 @@ float Circle::Area(void) {
 float Circle::OverallDimension(void) {
 	return 2 * GetRadius();
 };
+
+
+/*
+* Function: Circle Circle::operator+(const Circle& rhs)
+* Description: Overloaded + operator
+* Parameters: Right hand side
+* Return: result of +
+*/
+Circle Circle::operator+(const Circle& rhs) const {
+	Circle result;
+	result.SetRadius(this->radius + rhs.radius);
+	result.SetColour(this->GetColour());
+	return result;
+}
+
+
+/*
+* Function: Circle Circle::operator*(const Circle& rhs)
+* Description: Overloaded * operator
+* Parameters: Right hand side
+* Return: result of *
+*/
+Circle Circle::operator*(const Circle& rhs) const {
+	Circle result;
+	result.SetRadius(this->radius * rhs.radius);
+	result.SetColour(rhs.GetColour());
+	return result;
+}
+
+
+/*
+* Function: Circle Circle::operator=(const Circle& rhs)
+* Description: Overloaded = operator
+* Parameters: Right hand side
+* Return: result of =
+*/
+Circle& Circle::operator=(const Circle& rhs) {
+	if (this != &rhs) {
+		this->SetColour(rhs.GetColour());
+		this->radius = rhs.radius;
+	}
+	return *this;
+}
+
+
+/*
+* Function: Circle Circle::operator==(const Circle& rhs)
+* Description: Overloaded == operator
+* Parameters: Right hand side
+* Return: result of ==
+*/
+bool Circle::operator==(const Circle& rhs) const {
+	const float variance = (float)0.0000001;
+	if ((strcmp(this->GetColour(), rhs.GetColour()) == 0) && fabs(this->radius - rhs.radius) < variance) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}

@@ -1,150 +1,71 @@
 /*
 * Filename: myShape.cpp
-* Project: OOP-assign3
+* Project: OOP-assign5
 * Student ID: 8790144
 * By: Jongeon Lee
-* Date: Jun 17, 2023
+* Date: Jul 22, 2023
 * Description:This program creates and displays information about circles and squares.
 *		      Users can select a shape, set its attributes, and view calculated measurements.
 */
 #include <iostream>
-#include <stdlib.h>
-#include <string.h>
 #include "Shape.h"
 #include "Circle.h"
 #include "Square.h"
 
 using namespace std;
 
-#define MAX_NAME 50
-#define MAX_COLOUR 10
-
-#pragma warning(disable:4996)
-
-
-// local function prototypes
-int		getInteger(void);
-float	getFloat(void);
-int		getString(char* myString);
-
 int main(void)
-
 {
-	char newName[MAX_NAME] = { 0 };
-	char newColour[MAX_COLOUR] = { 0 };
-	float newRadius = 0.00;
-	float newSideLength = 0.00;
-	
-	Circle* cir = nullptr;
-	Square* squ = nullptr;
+    // Create Circle shapes with specified attributes
+    Circle round1("red", 5.5);
+    Circle round2("blue", 10.5);
 
-	cout << "Slect the shape (list: Circle, Square)" << endl;
-	cout << "Select : ";
-	
-	if (getString(newName) != 0) {
-		cout << "ERROR invalid input" << endl;
-		return 0;
-	}
-	
-	cout << "Slect the shape`s colour (list: red, green, blue, yellow, purple, pink, orange)" << endl;
-	cout << "Select : ";
+    // Create a default Circle shape
+    Circle playARound;
 
-	if (getString(newColour) != 0) {
-		cout << "ERROR invalid input" << endl;
-		return 0;
-	}
+    // Create Square shapes with specified attributes
+    Square square1("orange", 5.0);
+    Square square2("purple", 12.0);
 
-	if (strcmp(newName, "Circle") == 0) 
-	{
-		cir = new Circle();
-		cir->SetName(newName);
-		cir->SetColour(newColour);
-		cout << "Enter the radius of circle: ";
-		newRadius = getFloat();
-		cir->SetRadius(newRadius);
-		cir->Perimeter();
-		cir->Area();
-		cir->OverallDimension();
-		cir->Show();
-		delete cir;
-	}
-	else if (strcmp(newName, "Square") == 0) {
-		squ = new Square();
-		squ->SetName(newName);
-		squ->SetColour(newColour);
-		cout << "Enter the side length of square: ";
-		newSideLength = getFloat();
-		squ->SetSideLength(newSideLength);
-		squ->Perimeter();
-		squ->Area();
-		squ->OverallDimension();
-		squ->Show();
-		delete squ;
-	}
-	return 0;
-}
+    // Create a default Square shape
+    Square playASquare;
 
+    // Print specifics of each shape
+    round1.Show();
+    round2.Show();
+    playARound.Show();
+    square1.Show();
+    square2.Show();
+    playASquare.Show();
 
-// some useful functions
-int getInteger(void)
-{
-	char	record[121] = { 0 };	/* record stores the string */
-	int 	number = 0;
+    // Add round2 to round1 and store it in playAround
+    playARound = round1 + round2;
 
-	/* use fgets() to get a string from the keyboard */
-	fgets(record, sizeof(record), stdin);
+    // Add square1 to square2 and store in playASquare
+    playASquare = square2 + square1;
 
-	/*  extract the number from the string; sscanf() returns
-		a number corresponding with the number of items it
-		found in the string */
-	if (sscanf(record, "%d", &number) != 1)
-	{
-		/* if the user did not enter a number recognizable by
-		 * the system, set number to -1 */
-		number = -1;
-	}
+    // Print specifics of playARound and playASquare
+    playARound.Show();
+    playASquare.Show();
 
-	return number;
-}
+    // Multiply round1 by round2 and store in playARound
+    playARound = round1 * round2;
 
-float getFloat(void)
-{
-	char	record[121] = { 0 };	/* record stores the string */
-	float 	number = 0.00;
+    // Multiply square2 by square1 and store in playASquare
+    playASquare = square2 * square1;
 
-	/* use fgets() to get a string from the keyboard */
-	fgets(record, sizeof(record), stdin);
+    // Print specifics of playARound and playASquare
+    playARound.Show();
+    playASquare.Show();
 
-	/*  extract the number from the string; sscanf() returns
-		a number corresponding with the number of items it
-		found in the string */
-	if (sscanf(record, "%f", &number) != 1)
-	{
-		/* if the user did not enter a number recognizable by
-		 * the system, set number to -1.00 */
-		number = -1.00;
-	}
+    // Assign round1 to playARound, and then test to see if they are equivalent
+    playARound = round1;
+    if (playARound == round1) {
+        cout << "Hurray !!" << endl;
+    }
+    else {
+        cout << "Awww !!" << endl;
+    }
 
-	return number;
-}
-
-int getString(char* myString)
-{
-	char	record[121] = { 0 };	/* record stores the string */
-	int		retCode = 0;		/* success code */
-
-	/* use fgets() to get a string from the keyboard */
-	fgets(record, sizeof(record), stdin);
-
-	/*  extract the number from the string; sscanf() returns
-		a number corresponding with the number of items it
-		found in the string */
-	if (sscanf(record, "%s", myString) != 1)
-	{
-		/* if the user did not enter a number recognizable by
-		 * the system, set number to -1 */
-		retCode = -1;
-	}
-
-	return retCode;
+    return 0;
 }

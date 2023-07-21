@@ -1,12 +1,13 @@
 /*
 * Filename: Square.h
-* Project: OOP-assign3
+* Project: OOP-assign3 (and assign5)
 * Student ID: 8790144
 * By: Jongeon Lee
-* Date: Jun 17, 2023
+* Date: Jul 22, 2023
 * Description: This header file defines the Square class, which is derived from the Shape class. It introduces additional member variables and
 			  overrides the virtual functions to calculate the perimeter, area, and overall dimension specific to a sqiare.
 */
+
 
 #pragma once
 
@@ -36,7 +37,7 @@ private:
 public:
 	// Default constructor
 	Square();							///< constructor and destructor
-	Square(char* col, float sdlng);
+	Square(const char* col, float sdlng);
 	~Square();
 
 	// Get the side length of the square
@@ -56,5 +57,14 @@ public:
 
 	// Calculate the overall dimension of the square
 	float OverallDimension(void);		///< Calculate the overall dimension of the square
+
+	// Overloaded + operation
+	Square operator+(const Square& rhs) const;		///< Overloaded + operation
+	// Overloaded * operation
+	Square operator*(const Square& rhs) const;		///< Overloaded * operation
+	// Overloaded = operation
+	Square& operator=(const Square& rhs);			///< Overloaded = operation
+	// Overloaded == operation
+	bool operator==(const Square& rhs) const;		///< Overloaded == operation
 };
 #endif

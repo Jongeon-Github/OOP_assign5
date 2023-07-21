@@ -34,8 +34,8 @@
 /// \section notes Special Release Notes
 /// If you are tracking the versioning of your project software (as you would in the real world) then this is a good place to
 /// indicate (on a per version basis):
-/// - features added to the software
-/// - incidents / bugs / issues fixed
+/// - Create features and calculated its size
+/// - Using overload operator +, *, =, ==
 /// - etc.
 ///
 /// <hr>
@@ -47,26 +47,29 @@
 /// \section requirements Project Requirements
 /// There are Shpare project requirements
 ///
-/// -# Prompt the user to select a shape (Circle or Square).
-/// -# Prompt the user to enter the color of the shape from a predefined list.
-/// -# For a Circle:
-/// -# Prompt the user to enter the radius.
-/// -# Calculate and display the perimeter, area, and overall dimension.
-/// -# Display the shape's name, color, and measurements.
-/// -# For a Square:
-/// -# Prompt the user to enter the side length.
-/// -# Calculate and display the perimeter, area, and overall dimension.
-/// -# Display the shape's name, color, and measurements.
-/// -# Handle invalid input and display error messages.
-/// -# Provide utility functions for getting integer, float, and string inputs.
-/// -# Document the code with comments.
-/// -# Follow coding best practices.
-/// -# Ensure error-free compilation and execution.
+/// - Circle Class:
+/// -# Overloaded + operation: Add two circles, set the color to LHS, and radius to the sum of radii.
+/// -# Overloaded * operation: Multiply two circles, set the color to RHS, and radius to the product of radii.
+/// -# Overloaded = operation: Assign color and radius of one circle to another.
+/// -# Overloaded == operation: Check if two circles have the same color and radius with a small variance for floats.
+/// - Square Class:
+/// -# Overloaded + operation: Add two squares, set the color to LHS, and side length to the sum of sides.
+/// -# Overloaded * operation: Multiply two squares, set the color to RHS, and side length to the product of sides.
+/// -# Overloaded = operation: Assign color and side length of one square to another.
+/// -# Overloaded == operation: Check if two squares have the same color and side length with a small variance for floats.
+/// - TestHarness:
+/// -# Remove previous main code.
+/// -# Create Circle and Square objects with specified attributes and default constructors.
+/// -# Print out the specifics of each shape.
+/// -# Use overloaded operators to add, multiply, and assign circles and squares as required.
+/// -# Print out the specifics of playARound and playASquare after the operations.
+/// -# Test if playARound is equivalent to round1 and print "Hurray !!" or "Awww !!" based on the result.
+///
 ///
 /// <i>Please Note : The requirement(s) summary doesn't have to be an SRS by any means ...
 /// <hr> 
 /// \todo [optionally include text about more work to be done]
-/// \todo Wrong calculation
+/// - REQ   : Professor will be given this week :'-(
 ///
 /// <hr>
 /// \bug [optionally include known bugs and limitations within the project here]
@@ -77,8 +80,8 @@
 /// \section version Current version of the Shape Project :
 /// <ul>
 /// <li>\authors   The <b><i>Shape</i></b> Expert Team !!</li>
-/// <li>\version   1.00</li>
-/// <li>\date      2023-06-17</li>
+/// <li>\version   2.00</li>
+/// <li>\date      2023-07-22</li>
 /// <li>\pre       This is initial <i>Shape Project</i> version</li>
 /// <li>\warning   It is not <i>perfect Shape project<i> <b>yet</b></li>
 /// <li>\copyright Shape-Jongeon</li>

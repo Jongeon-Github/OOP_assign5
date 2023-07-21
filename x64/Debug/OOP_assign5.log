@@ -1,9 +1,4 @@
 ﻿  Circle.cpp
-  myShape.cpp
-  Shape.cpp
   Square.cpp
-D:\C_Lecture\Github\OOP_assign5\OOP_assign5\Square.cpp(102,47): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-D:\C_Lecture\Github\OOP_assign5\OOP_assign5\Square.cpp(113,48): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-D:\C_Lecture\Github\OOP_assign5\OOP_assign5\Square.cpp(124,43): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
   Generating Code...
   OOP_assign5.vcxproj -> D:\C_Lecture\Github\OOP_assign5\x64\Debug\OOP_assign5.exe

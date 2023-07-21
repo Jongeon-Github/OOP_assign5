@@ -1,15 +1,15 @@
 /*
 * Filename: Shape.h
-* Project: OOP-assign3
+* Project: OOP-assign3 (and assign5)
 * Student ID: 8790144
 * By: Jongeon Lee
-* Date: Jun 17, 2023
+* Date: Jul 22, 2023
 * Description: Defines the Shape class as a base class for different shapes. Provides functions to get and set the name and color of a shape.
 */
 
 #pragma once
 
-#include <string>
+#include "Shape.h"
 
 /// \class Shape
 ///
@@ -27,14 +27,12 @@
 #ifndef __SHAPE_H__
 #define __SHAPE_H__
 
-
 class Shape {
 
 protected:
-
 	// Variables
 	char const* name;			///< User inputs the shape
-	char const* colour;		///< User inputs the shape
+	char const* colour;			///< User inputs the shape
 
 public:
 	// Default constructor
@@ -42,10 +40,10 @@ public:
 	Shape(char const* shape_name, char const* shape_colour);
 
 	// Get the name of the shape
-	char const* GetName(void);					///< Get the name of the shape
+	char const* GetName(void) const;					///< Get the name of the shape
 
 	// Get the colour of the shape
-	char const* GetColour(void);					///< Get the colour of the shape
+	char const* GetColour(void) const;					///< Get the colour of the shape
 
 	// Set the name of the shape
 	void SetName(char const* newName);			///< Set the name of the shape
